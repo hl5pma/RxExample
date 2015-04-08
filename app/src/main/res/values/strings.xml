@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Rx</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="empty">검색결과가 없습니다.</string>
+    <string name="error">데이터를 불러올 수 없습니다.</string>
+    <string name="retry">다시 시도</string>
+
+</resources>
