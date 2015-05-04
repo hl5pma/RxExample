@@ -1,11 +1,14 @@
 buildscript {
     repositories {
         jcenter()
+        flatDir {
+            dirs 'buildLibs'
+        }
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.2'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.5-SNAPSHOT'
         classpath 'me.tatarka:gradle-retrolambda:3.0.1'
     }
 }
@@ -53,4 +56,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.google.dagger:dagger:2.0'
     apt 'com.google.dagger:dagger-compiler:2.0'
+
+    testCompile 'junit:junit:4.12'
+    testApt 'com.google.dagger:dagger-compiler:2.0'
+    testCompile 'com.squareup.retrofit:retrofit-mock:1.9.0'
 }
