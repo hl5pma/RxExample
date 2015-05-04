@@ -1,6 +1,6 @@
 package com.hl5pma.rxexample;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import javax.inject.Singleton;
 
@@ -17,13 +17,13 @@ import dagger.Provides;
 )
 public class ActivityModule {
 
-    private ActionBarActivity mActivity;
+    private AppCompatActivity mActivity;
 
-    public ActivityModule(ActionBarActivity activity) {
+    public ActivityModule(AppCompatActivity activity) {
         mActivity = activity;
     }
 
-    @Provides @Singleton ActionBarActivity provideActivity() {
+    @Provides @Singleton AppCompatActivity provideActivity() {
         return mActivity;
     }
 }
