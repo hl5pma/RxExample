@@ -3,26 +3,27 @@ package com.hl5pma.rxexample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import dagger.ObjectGraph;
-
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private ObjectGraph mActivityGraph;
+    private ActivityComponent mActivityComponent;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mActivityGraph = (ObjectGraph) getLastCustomNonConfigurationInstance();
-        if (mActivityGraph == null) {
+        mActivityComponent = (ActivityComponent) getLastCustomNonConfigurationInstance();
+        if (mActivityComponent == null) {
             App app = (App) getApplication();
-            mActivityGraph = app.getAppGraph().plus(new ActivityModule(this));
-        } else {
-            mActivityGraph = mActivityGraph.plus(new ActivityModule(this));
+            mActivityComponent = DaggerActivityComponent.builder()
+                    .appComponent(app.component())
+                    .build();
         }
-        mActivityGraph.inject(this);
+    }
+
+    protected ActivityComponent component() {
+        return mActivityComponent;
     }
 
     @Override public Object onRetainCustomNonConfigurationInstance() {
-        return mActivityGraph;
+        return mActivityComponent;
     }
 }

@@ -13,7 +13,7 @@ import retrofit.RestAdapter;
 import retrofit.converter.Converter;
 import retrofit.converter.GsonConverter;
 
-@Module(library = true)
+@Module
 public class ApiModule {
 
     @Singleton @Provides Endpoint provideEndpoint() {

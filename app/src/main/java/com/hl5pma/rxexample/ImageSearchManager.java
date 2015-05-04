@@ -3,13 +3,12 @@ package com.hl5pma.rxexample;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.subjects.ReplaySubject;
 
-@Singleton
+@ActivityScope
 public class ImageSearchManager {
 
     private static final String API_KEY = "12134b96690b90ec58897cb715d57a1e";
